@@ -7,9 +7,8 @@ checkout a branch using `git checkout -b branch_name`
 From the root of the project, run this command to start the server at `localhost:3000`:
 ```bash
 bundle install
-rails db:create
-rails db:migrate
-rails start
+rails db:reset
+rails server
 ```
 To run tests use `rake`
 Create a test and use `rake path/to/test.rb`
