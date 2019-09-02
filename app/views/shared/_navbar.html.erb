@@ -1,0 +1,5 @@
+<% if player_signed_in? %>
+  <%= link_to 'Sign out', destroy_player_session_path, method: :delete  %>
+<% else %>
+  <%= link_to 'Sign in', new_player_session_path %>
+<% end %>

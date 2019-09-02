@@ -24,7 +24,11 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe GamesController, type: :controller do
+  before do
+    sign_in player
+  end
 
+  let(:player) { create :player }
   # This should return the minimal set of attributes required to create a valid
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
