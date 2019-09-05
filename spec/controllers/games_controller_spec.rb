@@ -33,11 +33,11 @@ RSpec.describe GamesController, type: :controller do
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for :game
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    skip 'this seems to be broken'
   }
 
   # This should return the minimal set of values that should be in the session
@@ -101,18 +101,17 @@ RSpec.describe GamesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        attributes_for :game, status: :in_progress
       }
 
+      let(:game) { Game.create! valid_attributes }
+
       it "updates the requested game" do
-        game = Game.create! valid_attributes
         put :update, params: {id: game.to_param, game: new_attributes}, session: valid_session
-        game.reload
-        skip("Add assertions for updated state")
+        expect { game.reload }.to change {game.status}.from('pending').to('in_progress')
       end
 
       it "redirects to the game" do
-        game = Game.create! valid_attributes
         put :update, params: {id: game.to_param, game: valid_attributes}, session: valid_session
         expect(response).to redirect_to(game)
       end
@@ -141,5 +140,4 @@ RSpec.describe GamesController, type: :controller do
       expect(response).to redirect_to(games_url)
     end
   end
-
 end
