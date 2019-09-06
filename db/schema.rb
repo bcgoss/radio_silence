@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_09_05_150041) do
 
   create_table "games", force: :cascade do |t|
-    t.integer "status", default: 0
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
