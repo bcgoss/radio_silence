@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'Authentication' do
   it 'creates players' do
     # As a new player,
