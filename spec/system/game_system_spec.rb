@@ -18,6 +18,21 @@ describe Game do
       expect(page).to have_selector(:id, "chat_window")
       # And a start game button
       expect(page).to have_button('Start Game')
+      
+      # And filling out the fields will result in a game being created
+      fill_in 'Name', with: 'Game Name'
+      click_on 'Start Game'
+      
+      expect(page).to have_text 'Game was successfully created.'
+      within("#main_container") do
+        expect(page).to have_text player.email
+      end
+      
+      # Now / will include the new game in the list
+      visit '/'
+      within("#main_container") do
+        expect(page).to have_text player.email
+      end
     end
   end
   
