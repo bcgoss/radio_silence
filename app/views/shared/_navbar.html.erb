@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
   <a class="navbar-brand" href="/">Radio Silence...</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,6 +16,7 @@
         <%= current_player.email %>
         <%= link_to 'Sign out', destroy_player_session_path, method: :delete, class: "btn btn-outline-secondary" %>
       <% else %>
+        <%= link_to 'Sign up', new_player_registration_path, class: "btn btn-outline-secondary" %>
         <%= link_to 'Sign in', new_player_session_path, class: "btn btn-outline-secondary" %>
       <% end %>
     </div>
