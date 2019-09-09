@@ -33,7 +33,7 @@ RSpec.describe GamesController, type: :controller do
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    attributes_for :game
+    (attributes_for :game).merge({:owner_id => player.id})
   }
 
   let(:invalid_attributes) {

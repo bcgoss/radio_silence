@@ -5,4 +5,7 @@ RSpec.describe Game, type: :model do
     it { should define_enum_for(:status)
       .with_values([:pending, :in_progress, :finished, :archived]) }
   end
+  
+  it { should belong_to(:owner) }
+  
 end
