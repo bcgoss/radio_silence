@@ -5,6 +5,7 @@ describe Game do
     before { sign_in player }
 
     let(:player) { create :player }
+    
     it 'they can create a new game' do
       # As a logged in Player
       # When I Visit /
@@ -18,5 +19,9 @@ describe Game do
       # And a start game button
       expect(page).to have_button('Start Game')
     end
+  end
+  
+  context 'when no player is logged in' do
+      
   end
 end
