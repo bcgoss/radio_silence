@@ -19,11 +19,13 @@
       color: white;
     } 
 
-
     footer { 
         margin-top: 100px;
     }
 
+    .page-footer {
+      height: 30px;
+    }
 
 /* unvisited link */
 a:link {
