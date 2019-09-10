@@ -11,11 +11,12 @@ rails db:reset
 rails server
 ```
 To run tests use `rake`
-Create a test and use `rake path/to/test.rb`
-Make changes
-run tests
-commit to git
-push your changes and create a pull request
+- Create a test and use `rake SPEC=path/to/test.rb` to run an individual test.
+
+- Make changes
+- run tests
+- commit to git
+- push your changes and create a pull request
 
 # README
 
