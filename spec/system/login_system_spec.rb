@@ -5,7 +5,7 @@ describe 'Authentication' do
     it 'provides a way for players to sign up' do
       # When I visit the root page
       visit '/'
-      
+
       # The navbar should provide buttons for sign up and sign in
       within("#navbar") do
         expect(page).to have_link 'Sign up'
