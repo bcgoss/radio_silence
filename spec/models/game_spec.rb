@@ -7,5 +7,6 @@ RSpec.describe Game, type: :model do
   end
   
   it { should belong_to(:owner) }
+  it { should have_many(:players) }
   
 end

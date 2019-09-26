@@ -2,3 +2,18 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.page_content_heading {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.page_content_heading h1 {
+  display: inline-block;
+}
+
+.page_content_heading a {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+

@@ -139,5 +139,20 @@ RSpec.describe GamesController, type: :controller do
       delete :destroy, params: {id: game.to_param}, session: valid_session
       expect(response).to redirect_to(games_url)
     end
+    
+    context 'when there are player participants' do
+      let(:participant_player) { create(:player) }
+      let(:game) { create(:game) }
+      
+      before do
+        PlayerParticipation.create!(game: game, player: participant_player)
+      end
+      
+      it 'destroys the player participations as well' do
+        expect {
+          delete :destroy, params: {id: game.to_param}, session: valid_session
+        }.to change(PlayerParticipation, :count).by(-1)
+      end
+    end
   end
 end

@@ -14,35 +14,35 @@
  *= require_self
  */
  
-    body {
-      background-color: black;
-      color: white;
-    } 
+  body {
+    background-color: black;
+    color: white;
+  } 
 
-    footer { 
-        margin-top: 100px;
-    }
+  footer { 
+      margin-top: 100px;
+  }
 
-    .page-footer {
-      height: 30px;
-    }
+  .page-footer {
+    height: 30px;
+  }
 
-/* unvisited link */
-a:link {
-  color: grey;
-}
-
-/* visited link */
-a:visited {
-  color: green;
-}
-
-/* mouse over link */
-a:hover {
-  color: hotpink;
-}
-
-/* selected link */
-a:active {
-  color: blue;
-}
+  /* unvisited link */
+  a:link {
+    color: grey;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
