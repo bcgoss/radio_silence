@@ -1,27 +1,52 @@
-<h1>Games</h1>
+<div class="page_content_heading">
+  <h1>Games</h1><%= link_to 'New Game', new_game_path, class: 'btn btn-outline-secondary' if current_player %>  
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Owner</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table table-dark table-striped">
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.owner.email %></td>
-        <td><%= game.status %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="card text-white bg-dark mb-3">
+          <div class="card-body">
+            <h5 class="card-title" style="display:inline">Game Name...</h5>
+            <div class="" style="display:inline; float:right">
+              <%= link_to 'Show', game_path(game), class: 'btn btn-outline-secondary', style:'display:inline' if current_player%>
+              <% if current_player && game.owner == current_player %>
+                <%= link_to 'Edit', edit_game_path(game), class: 'btn btn-outline-secondary', style:'display:inline' %>
+                <%= link_to 'Destroy', game_path(game), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary', style:'display:inline' %>
+              <% else %>
+                &nbsp;
+              <% end %>
+            </div>
+            <p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p>Owner: <b><%= game.owner %></b></p>
+                    <p>Status: <b><%= game.status %></b></p>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card text-white bg-dark mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">Participants:</h5>
+                          <% game.players.each do |player| %>
+                            <p><%= player %></p>
+                          <% end %>
+                          <% if game.players.exclude?(current_player) %>
+                            <p>
+                              <%= link_to 'Join', player_participation_index_path(game: game, player: current_player), method: :post, class: 'btn btn-outline-primary' if current_player%>
+                            </p>
+                          <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </p>
+          </div>
+        </div>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Game', new_game_path %>

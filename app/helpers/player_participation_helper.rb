@@ -1,0 +1,2 @@
+module PlayerParticipationHelper
+end

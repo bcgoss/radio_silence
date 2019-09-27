@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
+
   end
 
   # GET /games/new
@@ -18,6 +19,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+
   end
 
   # POST /games

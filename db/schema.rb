@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_022222) do
+ActiveRecord::Schema.define(version: 2019_09_09_154323) do
 
   create_table "games", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2019_09_09_022222) do
     t.datetime "updated_at", null: false
     t.integer "owner_id"
     t.index ["owner_id"], name: "index_games_on_owner_id"
+  end
+
+  create_table "player_participations", force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_player_participations_on_game_id"
+    t.index ["player_id"], name: "index_player_participations_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
